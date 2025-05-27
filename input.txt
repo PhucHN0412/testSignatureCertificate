@@ -1,0 +1,16 @@
+-Lenovo-Legion-5-15ARH05:~/Documents/WorkSpace/Java/testEndcrypt$ git init
+Reinitialized existing Git repository in /home/hoangphuc/Documents/WorkSpace/Java/testEndcrypt/.git/
+hoangphuc@hoangphuc-Lenovo-Legion-5-15ARH05:~/Documents/WorkSpace/Java/testEndcrypt$ git remote add origin git@github.com:PhucHN0412/testSignatureCertificate.git
+git branch -M main
+git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'github.com:PhucHN0412/testSignatureCertificate.git'
+hoangphuc@hoangphuc-Lenovo-Legion-5-15ARH05:~/Documents/WorkSpace/Java/testEndcrypt$  git remote add origin git@github.com:PhucHN0412/testSignatureCertificate.git
+error: remote origin already exists.
+hoangphuc@hoangphuc-Lenovo-Legion-5-15ARH05:~/Documents/WorkSpace/Java/testEndcrypt$ git remote
+origin
+hoangphuc@hoangphuc-Lenovo-Legion-5-15ARH05:~/Documents/WorkSpace/Java/testEndcrypt$ git branch -M main
+hoangphuc@hoangphuc-Lenovo-Legion-5-15ARH05:~/Documents/WorkSpace/Java/testEndcrypt$ git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'github.com:PhucHN0412/testSignatureCertificate.git'
+hoangphuc@hoangphuc-Lenovo-Legion-5-15ARH05:~/Documents/WorkSpace/Java/testEndcrypt$ 

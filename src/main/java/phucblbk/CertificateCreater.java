@@ -14,19 +14,30 @@ import java.io.ObjectOutputStream;
 import java.math.BigInteger;
 import java.security.*;
 import java.security.cert.X509Certificate;
+import java.util.Base64;
 import java.util.Date;
 
 public class CertificateCreater {
     public static void main(String[] args) throws Exception {
         Security.addProvider(new BouncyCastleProvider());
-        // Tạo cặp khóa RSA
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
         keyPairGenerator.initialize(2048, new SecureRandom());
         KeyPair keyPair = keyPairGenerator.generateKeyPair();
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("privatekey.key"))){
             oos.writeObject(keyPair.getPrivate());
         }
+        System.out.println("keyPairGenerator.toString()"+keyPairGenerator.getAlgorithm());
+        System.out.println("keyPairGenerator.toString()"+keyPairGenerator.getProvider());
         System.out.println("Private key duoc luu vao privatekey.key");
+        PublicKey publicKey = keyPair.getPublic();
+        PrivateKey privateKey = keyPair.getPrivate();
+        System.out.println("Public Key Algorithm: " + publicKey.getAlgorithm());
+        System.out.println("Public Key Format: " + publicKey.getFormat());
+        System.out.println("Public Key (Base64): " + Base64.getEncoder().encodeToString(publicKey.getEncoded()));
+        System.out.println("Private Key Algorithm: " + privateKey.getAlgorithm());
+        System.out.println("Private Key Format: " + privateKey.getFormat());
+
+        System.out.println("Private Key (BASE64):" + Base64.getEncoder().encodeToString(privateKey.getEncoded()));
 
         X500Name issuer = new X500Name("CN=Test Self-Signed Certificate");
         X500Name subject = issuer;

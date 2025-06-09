@@ -59,12 +59,12 @@ public class CertificateCreater {
         try (FileOutputStream fos = new FileOutputStream("selfsignedcertificate.cer")) {
             fos.write(certificate.getEncoded());
         }
+
         String message = "Hello, Text Message";
         Signature sig = Signature.getInstance("SHA256withRSA");
         sig.initSign(keyPair.getPrivate());
         sig.update(message.getBytes());
         byte[] signature = sig.sign();
-
         try(FileOutputStream fos = new FileOutputStream("signature.sig")){
             fos.write(signature);
         }

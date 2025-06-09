@@ -19,9 +19,7 @@ public class VerifySignature {
         FileInputStream sigFis = new FileInputStream("signature.sig");
         byte[] signature = sigFis.readAllBytes();
         sigFis.close();
-
         String message = "Hello,Text Message";
-
         Signature sig = Signature.getInstance("SHA256withRSA");
         sig.initVerify(publicKey);
         sig.update(message.getBytes());
